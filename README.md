@@ -1,5 +1,5 @@
 # p-brain (mini)
-
+![banner](https://github.com/user-attachments/assets/4f8bdcba-dbe6-41c7-b644-c0cdaf031fe9)
 This script automates the processing and analysis of DCE-MRI data, including:
 - Segmentation with FastSurfer
 - Mask generation and visualization
