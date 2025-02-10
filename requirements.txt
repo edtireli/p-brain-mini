@@ -1,0 +1,8 @@
+nibabel
+numpy
+matplotlib
+scipy
+pillow
+tqdm
+scikit-image
+tkinter
