@@ -1089,7 +1089,7 @@ class Workflow(tk.Tk):
         self.title("p-brain (mini) - v1.0.0")
         try:
             from PIL import Image, ImageTk
-            banner_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'banner.png')
+            banner_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets','banner.png')
             if os.path.exists(banner_path):
                 pil_image = Image.open(banner_path)
                 rsz = pil_image.resize((pil_image.width//4, pil_image.height//4), Image.Resampling.LANCZOS)
