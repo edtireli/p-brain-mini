@@ -1267,7 +1267,19 @@ class Workflow(tk.Tk):
                 nib.save(d_up, seg_in_dce)
             else:
                 d_up = nib.load(seg_in_dce)
-
+            
+            seg_img = nib.load(seg_in_dce)
+            seg_data = seg_img.get_fdata()
+            voxel_vol = np.abs(np.linalg.det(seg_img.affine))
+            vol_left = float(np.sum(seg_data == 31) * voxel_vol)
+            vol_right = float(np.sum(seg_data == 63) * voxel_vol)
+            choroid_plexus_volumes = {
+                "left_choroid_plexus": vol_left,
+                "right_choroid_plexus": vol_right
+            }
+            choroid_json_path = os.path.join(analysis_dir, "choroid_plexus_volumes.json")
+            with open(choroid_json_path, "w") as f:
+                json.dump(choroid_plexus_volumes, f, indent=4)
             dce_masks = create_masks(seg_in_dce, analysis_seg_dir, force=True)
 
             plot_predictions_with_masks(
